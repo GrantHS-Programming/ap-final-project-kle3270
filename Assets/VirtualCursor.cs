@@ -8,7 +8,6 @@ public class VirtualCursor : MonoBehaviour
     // Start is called before the first frame update
     //Can scale the cursor based on mass of object equipped but that is for later
     [SerializeField] Rigidbody2D cursorObject;
-    [SerializeField] Rigidbody2D clubObject;
     public float scaleSpeed;
     float moveX;
     float moveY;
