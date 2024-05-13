@@ -27,7 +27,7 @@ public class CameraTrack : MonoBehaviour
         //if in the third quadrant that means that the absPosition if between the bounds
         float ballAngle = Vector2.Angle(absBallDistance, new(0,1));
         Debug.Log("Moveto:" + moveToPosition + " Angle:" + ballAngle+"Distance: "+absBallDistance);
-        if(ballAngle !>90 && ballAngle !< 180)
+        if(ballAngle !>90 && ballAngle !< 180) //wtf is this?
         {
             float tanAngleFromBall = (ballDistance).y / (ballDistance).x;
             moveToPosition = new(golfBall.position.x+5, golfBall.position.y+5,-10);
@@ -42,6 +42,7 @@ public class CameraTrack : MonoBehaviour
         // y/x = tan(angleFromBall) --> x = y/tan(angleFromBall0
         //This only applies when it is outside of the bounds. It doesnt go to the point, it moves in cameraspeed * deltatime intervals.
         //Try if to update the travel to location and the update just moves it
+        
         transform.position = Vector3.MoveTowards(transform.position, cameraPanLocation, cameraSpeed * Time.deltaTime); 
         cameraPanLocation = updateMoveToPosition(golfBall.position, maxBoundsCam, cameraPanLocation);
 

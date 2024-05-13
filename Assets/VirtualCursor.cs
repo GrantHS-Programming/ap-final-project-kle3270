@@ -37,6 +37,7 @@ public class VirtualCursor : MonoBehaviour
             Vector2 moveVector = new(moveX, moveY);
             cursorObject.transform.Translate(moveVector);
 
+
         }
     }
 }
