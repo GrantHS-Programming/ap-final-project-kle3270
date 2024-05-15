@@ -6,7 +6,8 @@ public class CameraTrack : MonoBehaviour
     public Rigidbody2D golfBall;
     public Vector2 maxBoundsCam;
     public float cameraSpeed;
-    private Vector3 cameraPanLocation;
+    public Vector3 cameraPanLocation;
+ 
    // public Camera camera; Will figure this out later to zoom in and out but for now its fine
    //Make camera move at same angle just ofr a little bit too, do cam position - ball position. then inverse tan of y/x 
     void Start()
@@ -20,34 +21,30 @@ public class CameraTrack : MonoBehaviour
         return absolutedVector;
     }
 
-    Vector3 updateMoveToPosition(Vector2 ballPos, Vector2 bounds,Vector3 moveToPosition)
-    {
-        Vector2 ballDistance = ballPos - bounds;
-        Vector2 absBallDistance = absValueVectorTwo(ballDistance); 
-        //if in the third quadrant that means that the absPosition if between the bounds
-        float ballAngle = Vector2.Angle(absBallDistance, new(0,1));
-        Debug.Log("Moveto:" + moveToPosition + " Angle:" + ballAngle+"Distance: "+absBallDistance);
-        if(ballAngle !>90 && ballAngle !< 180) //wtf is this?
-        {
-            float tanAngleFromBall = (ballDistance).y / (ballDistance).x;
-            moveToPosition = new(golfBall.position.x+5, golfBall.position.y+5,-10);
-        }
-        return new(moveToPosition.x,moveToPosition.y,-10);
-    }
-
     // Update is called once per frame
     void Update()
-    {
+    {   
         int randomMoveY = Random.Range(1, 5);
+        Vector2 ballDistance = absValueVectorTwo(golfBall.position)-maxBoundsCam+transform.position;
+        Vector2 notAbsDist = golfBall.position - maxBoundsCam;
+        Debug.Log(ballDistance + ""+ transform.position );
         // y/x = tan(angleFromBall) --> x = y/tan(angleFromBall0
         //This only applies when it is outside of the bounds. It doesnt go to the point, it moves in cameraspeed * deltatime intervals.
         //Try if to update the travel to location and the update just moves it
-        
-        transform.position = Vector3.MoveTowards(transform.position, cameraPanLocation, cameraSpeed * Time.deltaTime); 
-        cameraPanLocation = updateMoveToPosition(golfBall.position, maxBoundsCam, cameraPanLocation);
-
-
-
+        //transform.position = Vector3.MoveTowards(transform.position, cameraPanLocation, cameraSpeed * Time.deltaTime); 
+        //cameraPanLocation = updateMoveToPosition(golfBall.position, maxBoundsCam, cameraPanLocation); 
+        if(ballDistance.x > 0 || ballDistance.y > 0){
+            //float angle = notAbsDist.y/notAbsDist.x;
+            transform.position += cameraSpeed*Time.deltaTime * new Vector3(golfBall.position.x,golfBall.position.y,0);
+            cameraSpeed++;
+            //cameraPanLocation = golfBall.position;
+          //  transform.position = Vector3.MoveTowards(transform.position,cameraPanLocation,cameraSpeed * Time.deltaTime);
+            
+        } 
+        else{
+            cameraSpeed = 1;
+        }
     }
-    
 }
+
+

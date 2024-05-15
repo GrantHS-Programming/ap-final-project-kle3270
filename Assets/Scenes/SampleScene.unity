@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -215,6 +216,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a81da0b62d44d5ca0b1e4c7c7e43e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  golfBall: {fileID: 1989085355}
+  maxBoundsCam: {x: 8, y: 5}
+  cameraSpeed: 1
 --- !u!1 &1462593780
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,9 +290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorObject: {fileID: 1462593781}
-  clubObject: {fileID: 1595595394}
   scaleSpeed: 1
-  defaultMouseSpeed: 50
+  defaultMouseSpeed: 200
 --- !u!212 &1462593783
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -338,8 +353,8 @@ Transform:
   m_GameObject: {fileID: 1462593780}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6104531, y: 3.7464998, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.8453, y: 3.5305, z: 0}
+  m_LocalScale: {x: 0.5304, y: 0.568, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -355,9 +370,9 @@ GameObject:
   - component: {fileID: 1595595396}
   - component: {fileID: 1595595395}
   - component: {fileID: 1595595394}
-  - component: {fileID: 1595595393}
   - component: {fileID: 1595595398}
   - component: {fileID: 1595595397}
+  - component: {fileID: 1595595399}
   m_Layer: 0
   m_Name: Club
   m_TagString: Untagged
@@ -365,18 +380,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1595595393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1595595392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52cbdc94a6b254755beee466141eb55b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1595595394
 Rigidbody2D:
   serializedVersion: 4
@@ -465,7 +468,7 @@ Transform:
   m_GameObject: {fileID: 1595595392}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.79, y: 1.98, z: 0}
+  m_LocalPosition: {x: -4.71, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -483,9 +486,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18b601960d2966408c67f6848997fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  club: {fileID: 0}
-  cursor: {fileID: 0}
-  golfBall: {fileID: 0}
+  club: {fileID: 1595595394}
+  cursor: {fileID: 1462593781}
+  golfBall: {fileID: 1989085355}
 --- !u!114 &1595595398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,6 +501,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52cbdc94a6b254755beee466141eb55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1595595399
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595595392}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1989085354
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,8 +557,9 @@ GameObject:
   - component: {fileID: 1989085357}
   - component: {fileID: 1989085356}
   - component: {fileID: 1989085355}
+  - component: {fileID: 1989085358}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: GolfBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -604,12 +653,47 @@ Transform:
   m_GameObject: {fileID: 1989085354}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.43, y: -0.98, z: 0}
+  m_LocalPosition: {x: -1.46, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1989085358
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989085354}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
