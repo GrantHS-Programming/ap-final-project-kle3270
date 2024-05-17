@@ -230,7 +230,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   golfBall: {fileID: 1989085355}
   maxBoundsCam: {x: 8, y: 5}
-  cameraSpeed: 1
+  cameraSpeed: 0
+  cameraPanLocation: {x: 0, y: 0, z: 0}
 --- !u!1 &1462593780
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +578,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 120
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
