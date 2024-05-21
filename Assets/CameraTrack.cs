@@ -38,6 +38,8 @@ public class CameraTrack : MonoBehaviour
         
         int randomMoveY = Random.Range(1, 5);
         Vector2 camPos = new Vector2(transform.position.x,transform.position.y);
+        Vector2 ballDisplacement = camPos-golfBall.position;
+    
         Vector2 ballDistance = absValueVectorTwo(golfBall.position)-maxBoundsCam+camPos;
         Vector2 notAbsDist = golfBall.position - maxBoundsCam;
         Debug.Log(ballDistance + ""+ camPos +maxBoundsCam);
