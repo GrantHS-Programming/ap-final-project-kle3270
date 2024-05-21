@@ -8,10 +8,10 @@ public class SinusoidTest : MonoBehaviour
     void Start()
     {
              for(int x = 0; x < 360; x++){
-            double angle = x*57.2957795;
+            double angle = x*1/57.2957795;
             float tan = Mathf.Tan((float) angle);
-            float invTan = Mathf.Atan(tan);
-            Debug.Log(invTan + " :"+tan);
+            float invTan = 2/(float)57.2957795*Mathf.Atan(tan);
+            Debug.Log(x+":"+invTan + " :"+tan);
              }
             
     }
