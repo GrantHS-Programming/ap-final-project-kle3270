@@ -12,13 +12,14 @@ public class SinusoidTest : MonoBehaviour
             float tan = Mathf.Tan((float) angle);
             float invTan = Mathf.Atan(tan);
             Debug.Log(invTan + " :"+tan);
-        
+             }
+            
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        int x = 2;
   } 
-    }
+    
 }
