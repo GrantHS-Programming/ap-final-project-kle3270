@@ -38,11 +38,13 @@ public class CameraTrack : MonoBehaviour
         
         int randomMoveY = Random.Range(1, 5);
         Vector2 camPos = new Vector2(transform.position.x,transform.position.y);
-        Vector2 ballDisplacement = camPos-golfBall.position;
+        
+        Vector2 ballDisplacement = golfBall.position-camPos;
     
-        Vector2 ballDistance = absValueVectorTwo(golfBall.position)-maxBoundsCam+camPos;
+        Vector2 ballDistance = absValueVectorTwo(golfBall.position)-(maxBoundsCam+absValueVectorTwo(camPos));
+
         Vector2 notAbsDist = golfBall.position - maxBoundsCam;
-        Debug.Log(ballDistance + ""+ camPos +maxBoundsCam);
+        Debug.Log("displacemet"+ballDisplacement +"Dista"+ballDistance+ "CAm" + camPos+"thing"+(maxBoundsCam+camPos));
         // y/x = tan(angleFromBall) --> x = y/tan(angleFromBall0
         //This only applies when it is outside of the bounds. It doesnt go to the point, it moves in cameraspeed * deltatime intervals.
         //Try if to update the travel to location and the update just moves it
@@ -50,7 +52,7 @@ public class CameraTrack : MonoBehaviour
         //cameraPanLocation = updateMoveToPosition(golfBall.position, maxBoundsCam, cameraPanLocation); 
         if(ballDistance.x > 0 || ballDistance.y > 0){
             //float angle = notAbsDist.y/notAbsDist.x;
-            transform.position += cameraSpeed*Time.deltaTime * new Vector3(golfBall.position.x,golfBall.position.y,0);
+            transform.position += cameraSpeed*Time.deltaTime * new Vector3(ballDisplacement.x,ballDisplacement.y,0);
             cameraSpeed++;
             //cameraPanLocation = golfBall.position;
           //  transform.position = Vector3.MoveTowards(transform.position,cameraPanLocation,cameraSpeed * Time.deltaTime);
